@@ -20,6 +20,8 @@ class Solution {
   };
   
 
+  
+
 //Approach: converting number into binary then store it into a string then starting using array operation and convert binary into again decimal format
 //Time complexity: O(1)
 //Space Complexity: O(1)
