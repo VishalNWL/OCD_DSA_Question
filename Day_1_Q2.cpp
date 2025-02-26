@@ -1,6 +1,6 @@
 //Given a number x, reverse its binary form and return the answer in decimal.
 
-https://www.geeksforgeeks.org/problems/reverse-bits3556/1?page=1&category=Mathematical&difficulty=Easy&sortBy=submissions
+//https://www.geeksforgeeks.org/problems/reverse-bits3556/1?page=1&category=Mathematical&difficulty=Easy&sortBy=submissions
 
 class Solution {
     public:
