@@ -102,3 +102,74 @@ public:
 approach:using property of pascal's triangle after storing the first and the second line
 Time complexity: O(N^2)
 Space complexity: O(N^2)
+
+//Problem of the day minimum cost to climb stair
+  class Solution {
+  public:
+   int solve(vector<int>&cost,int n,vector<int>&dp){
+       if(n==0){
+           return cost[0];
+       }
+       if(n==1){
+           return cost[1];
+       }
+       
+       if(dp[n]!=-1){
+           return dp[n];
+       }
+       
+       dp[n]=min(solve(cost,n-1,dp),solve(cost,n-2,dp))+cost[n];
+       return dp[n];
+   }
+    int minCostClimbingStairs(vector<int>& cost) {
+        vector<int>dp(cost.size(),-1);
+        int mincost=min(solve(cost,cost.size()-1,dp),solve(cost,cost.size()-2,dp));
+        return mincost;
+    }
+};
+
+Approach: using dp to store minimum cost of already visited stairs and then using recursion to get min cost of current stair and adding cost of current stair so that 
+we can move on further stairs
+
+Time Complexity: O(N)
+Space Complexity:O(N)
+
+//maximum count of +ve and -ve intiger using binary search
+  class Solution {
+public:
+    int maximumCount(vector<int>& nums) {
+        int negative=-1;
+        int s=0,e=nums.size()-1;
+        while(s<=e){
+            int mid=(s+e)/2;
+            if(nums[mid]<0){
+                negative=mid;
+                s=mid+1;
+            }
+            else{
+                e=mid-1;
+            }
+        }
+
+    if(negative+1>=nums.size()){
+        return negative+1;
+    }
+
+    int positive=negative+1;
+     while(nums[positive]==0){
+        if(positive+1>=nums.size()){
+            positive=nums.size();
+            break;
+        }
+        positive++;
+     }
+
+//here size is added and subtracted becoz it is not working without this
+     return max(nums.size()+negative+1-nums.size(),nums.size()-positive);
+     
+    }
+};
+
+Approach: usng binary search to find first negative and then use this to find positive element
+Time complexity:O(N)
+Space complexity:O(1)
