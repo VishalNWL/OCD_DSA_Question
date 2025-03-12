@@ -66,4 +66,39 @@ Approach:first transpose then reverse each row
 Time complexity:O(N^2)
 Space complexity:O(1);
 
+//Pascal's triangle
+class Solution {
+public:
+    vector<vector<int>> generate(int numRows) {
+        vector<vector<int>>ans;
+        
+        ans.push_back({1});
+        if(numRows==1){
+           return ans;
+        }
 
+        ans.push_back({1,1});
+        if(numRows==2){
+            return ans;
+        }
+      
+       vector<int>output;
+       for(int i=2;i<numRows;i++){
+        for(int j=0;j<=i;j++){
+            if(j==0||j==i){
+                output.push_back(1);
+            }
+            else{
+                output.push_back(ans[i-1][j-1]+ans[i-1][j]);
+            }
+        }
+        ans.push_back(output);
+        output.clear();
+       }
+     return ans;
+    }
+};
+
+approach:using property of pascal's triangle after storing the first and the second line
+Time complexity: O(N^2)
+Space complexity: O(N^2)
