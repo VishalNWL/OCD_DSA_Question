@@ -27,5 +27,55 @@ public:
 };
 
 Approach: In simple binary search if element not found s and e will point to same location so we can use that postion
-Time complexity:O(N)
+Time complexity:O(log(n))
 Space Complexity:O(1)
+
+//First and last occurance
+    class Solution {
+  public:
+    vector<int> find(vector<int>& arr, int x) {
+        int s=0,e=arr.size()-1;
+        int first=-1,last=-1,mid;
+        
+        while(s<=e){
+            mid=(s+e)/2;
+            
+            if(arr[mid]==x){
+                first=mid;
+                e=mid-1;
+            }
+            else if(arr[mid]<x){
+                s=mid+1;
+            }
+            else{
+                e=mid-1;
+            }
+        }
+        
+        
+        s=0,e=arr.size()-1;
+        while(s<=e){
+            mid=(s+e)/2;
+            
+            if(arr[mid]==x){
+                last=mid;
+                s=mid+1;
+            }
+            else if(arr[mid]<x){
+                s=mid+1;
+            }
+            else{
+                e=mid-1;
+            }
+        }
+        
+        vector<int>ans;
+        ans.push_back(first);
+        ans.push_back(last);
+        return ans;
+        
+    }
+};
+
+Time compleixty:O(log(n))
+Space complexity:O(1)
