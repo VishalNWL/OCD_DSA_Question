@@ -171,5 +171,5 @@ cout<<pivot;
 Approach:First find pivot element then check if target is in left or right of the pivot and then apply binary search
 
 
-Time Complexity :O(N)
+Time Complexity :O(logN)
 Space Complexity:O(1)
