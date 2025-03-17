@@ -36,4 +36,33 @@ public:
 Approach:Min banana can eat is 1 and max is max element in the array so apply binary search in this range and then check if mid is a possible no. or not by taking ceil of banana with mid and then doing it for every pile and adding them then at end 
 we added to hour var then at end we checked if hour<=h or not
 
+// Find the Smallest Divisor Given a Threshold
 
+class Solution {
+public:
+bool isPossible(vector<int>& piles, int h, int mid) {
+    int hoursSpent = 0;
+    for (int i = 0; i < piles.size(); i++) {
+        hoursSpent += (piles[i] + mid - 1) / mid; 
+    }
+    return hoursSpent <= h;
+}
+int smallestDivisor(vector<int>& nums, int threshold) {
+     int s = 1, ans = INT_MAX;
+    int e = *max_element(nums.begin(), nums.end());
+
+    while (s <= e) {
+        int mid = (s + e) / 2;
+        if (isPossible(nums, threshold, mid)) {
+            ans = mid; 
+            e = mid - 1;
+        } else {
+            s = mid + 1; 
+        }
+    }
+    return ans;
+
+}
+};
+
+Approach and time coplexity is same as above
