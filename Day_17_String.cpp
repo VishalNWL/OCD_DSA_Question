@@ -34,4 +34,30 @@ Time complexity:O(N)
 Space compleixty:O(N)
 
 
+// Remove Outermost Parentheses -->Leetcode
+
+    class Solution {
+public:
+    string removeOuterParentheses(string s) {
+        string ans;
+        int sum=0;
+        if(s.length()==0){return "";}
+
+        for(int i=1;i<s.length()-1;i++){
+           if(s[i]=='('){sum+=1;}
+           if(s[i]==')'){sum-=1;}
+           if(sum<0){
+             i++;
+             sum=0;
+             continue;
+           }
+           ans.push_back(s[i]);
+        }
+        return ans;
+    }
+};
+
+Approach:start from index 1 then moved to other index by counting ( as +1 and ) as -1 if any point sum is -ve then we skip two iteration )( and aslo reseting sum=0
+Time complexity: O(N)
+Space complexity: O(N);
   
