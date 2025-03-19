@@ -59,5 +59,5 @@ public:
 
 Approach:start from index 1 then moved to other index by counting ( as +1 and ) as -1 if any point sum is -ve then we skip two iteration )( and aslo reseting sum=0
 Time complexity: O(N)
-Space complexity: O(N);
+Space complexity: O(1);
   
