@@ -1,4 +1,4 @@
-//Delete a node
+1.//Delete a node
 class Solution {
 public:
     void deleteNode(ListNode* node) {
@@ -13,4 +13,23 @@ Approach:we are given the node which we have to delete so we don't have access o
 Time Complexity:O(1)
 Space Compleixty:O(1)
 
+My Approach:
+class Solution {
+public:
+    void deleteNode(ListNode* node) {
+        while(node->next!=NULL){
+            node->val=node->next->val;
+            if(node->next->next!=NULL){
+              node=node->next;
+            }
+            else{
+                node->next=NULL;
+            }
+        }
+        
+    }
+};
+Appraoch :start copying next val to current node until the next to next is not null then remove that node
+Time Complexity:O(N)
+Space Compleixty:O(1)
   
