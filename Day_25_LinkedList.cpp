@@ -32,4 +32,30 @@ public:
 Appraoch :start copying next val to current node until the next to next is not null then remove that node
 Time Complexity:O(N)
 Space Compleixty:O(1)
-  
+
+
+//2.Insertin at the end
+    class Solution {
+  public:
+    Node *insertAtEnd(Node *head, int x) {
+        Node* newnode=new Node(x);
+        newnode->next=NULL;
+        
+        if(head==NULL){
+            return newnode;
+        }
+        
+        Node*curr=head;
+        while(curr->next!=NULL){
+            curr=curr->next;
+        }
+        
+        curr->next=newnode;
+        return head;
+    }
+};
+
+Appraoch :just traverse to the end then add a element
+
+  Time Complexity:O(N)
+Space Compleixty:O(1)
