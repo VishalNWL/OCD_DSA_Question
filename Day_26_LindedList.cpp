@@ -34,3 +34,23 @@ Approach : Iterating to the position and then insert new element
 Time complexity:O(N);
 Space complexity:O(1);
 
+
+//Searching in the LL
+class Solution {
+  public:
+    // Function to count nodes of a linked list.
+    bool searchKey(int n, Node* head, int key) {
+        while(head!=NULL){
+            if(head->data==key){
+                return true;
+            }
+            head=head->next;
+        }
+        return false;
+    }
+};
+
+Appraoch :Traversing the linked list
+Time complexity:O(N);
+Space complexity:O(1);
+
